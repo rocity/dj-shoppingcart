@@ -1,4 +1,19 @@
 html {
-    font-family: sans-serif;
-    color: #222;
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 0 0 100px; /* bottom = footer height */
+}
+footer {
+    background-color: #E6E9ED;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+}
+#wrapper {
+    padding-top: 20px;
 }

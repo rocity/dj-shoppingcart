@@ -19,16 +19,20 @@
     <div class="container">
         <div class="row">
             <h2>Recently Added</h2>
-            {% for product in products %}
-                <div class="card card-block">
-                    <h4 class="card-title">{{ product.title }}</h4>
-                    <p class="card-text">
-                        {{ product.description }}
-                    </p>
-                    <a href="#" class="card-link">View</a>
-                    <a href="#" class="card-link">Add to Cart</a>
+            <div class="card-deck-wrapper">
+                <div class="card-deck">
+                {% for product in product_list %}
+                    <div class="card card-block">
+                        <h4 class="card-title">{{ product.title }}</h4>
+                        <p class="card-text">
+                            {{ product.description }}
+                        </p>
+                        <a href="#" class="card-link">View</a>
+                        <a href="#" class="card-link">Add to Cart</a>
+                    </div>
+                {% endfor %}
                 </div>
-            {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock page_content %}

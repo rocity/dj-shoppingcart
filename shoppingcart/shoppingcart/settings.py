@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-from .secrets import secretkey
+from .secrets import secretkey, fbauth
 SECRET_KEY = secretkey
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -38,8 +38,19 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store'
+    'store',
+    'social.apps.django_app.default',
 )
+
+SOCIAL_AUTH_AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook',
+)
+
+# FB Social Auth Settings
+SOCIAL_AUTH_FACEBOOK_KEY = fbauth['SAFK']
+SOCIAL_AUTH_FACEBOOK_SECRET = fbauth['SAFS']
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -69,6 +80,11 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
+)
 
 WSGI_APPLICATION = 'shoppingcart.wsgi.application'
 

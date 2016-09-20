@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block page_title %}
+    Profile Page
+{% endblock page_title %}
+
+{% block page_content %}
+    <div class="container">
+        <div class="row">
+            <h2>{{ user.get_username }}</h2>
+            <pre>
+                avatar \n 
+                {{ user }}
+            </pre>
+        </div>
+    </div>
+{% endblock page_content %}

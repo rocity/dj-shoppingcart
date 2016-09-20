@@ -42,9 +42,11 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
 )
 
-SOCIAL_AUTH_AUTHENTICATION_BACKENDS = (
-    'social.backends.facebook',
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookOAuth2',
 )
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/store/'
 
 # FB Social Auth Settings
 SOCIAL_AUTH_FACEBOOK_KEY = fbauth['SAFK']

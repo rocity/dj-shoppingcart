@@ -5,7 +5,7 @@ urlpatterns = [
     # Examples:
     # url(r'^$', 'shoppingcart.views.home', name='home'),
 
-    url(r'^store/', include('store.urls')),
+    url(r'^store/', include('store.urls', namespace='store')),
 
     url(r'^admin/', include(admin.site.urls)),
 
